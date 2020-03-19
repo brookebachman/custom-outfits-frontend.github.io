@@ -3,69 +3,30 @@
 
 <head>
     <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Custom Outfits</title>
-    <script src="script.js"></script> 
+    
 </head>
 
-<body> <!-- START///, this is the biggest grid/box for all content, including header--> 
+<body> 
 
-
-
-    <header class= "header-site"> <!-- START// Header including picture and the 3 link buttons-->
+    <header class= "header-site"> 
         <h1 id="title">
             <span id="outfit-link">Outfits</span> |
-            <span id="complete-outfit-link">Complete Outfits</span> |
-            <span id="clothes-link">Clothes</span>
-
+            <span id="add-outfit-link">Add An Outfit</span> |
+            <span id="all-clothes-link">Clothes</span> |
+            <span id="clothes-link">Add A Clothing Item</span>
         </h1>
         
-    </header> <!-- END/// Header-->
+    </header> 
 
 
-    <main class="main-container"> <!--START// Big box not including the header, but including the rest of the page-->
-        <div id="outfit-info-column"> <!-- START// of the first column with outfit info -->
-
-            <!-- <h1 id="outfit-name"> Wedding Outfit</h1> 
-            <p id="outfit-season">Season: Summer</p>
-            <p id="outfit-occasion">Occasion: Formal</p>
-            <p id="outfit-is-new">Outfit Status: New</p> -->
-               
-        </div> <!-- END/// this is where the outfit column ends--> 
-
-        <div id="clothes-column">
-            <div class="clothing-item-card"> <!-- START// Where we display each clothing item info-->
-                <!-- <h2 id="clothes-name"></h2>
+    <main class="main-container"></main> 
             
-                <p id="clothes-color"></p>
-                <p id="clothes-clothing-type"></p>
-                <p id="clothes-material"></p>
-                <p id="clothes-brand"></p>
-                <p id="clothes-size"></p> 
-                <img src="" id="clothing-image" data-id=""/> -->
-            </div> <!-- END/// of clothing info-->
-
-            <div class="clothing-item-card"> <!-- START// Where we display each clothing item info-->
-                <!-- <h2 id="clothes-name"></h2>
-               
-                <p id="clothes-color"></p>
-                <p id="clothes-clothing-type"></p>
-                <p id="clothes-material"></p>
-                <p id="clothes-brand"></p>
-                <p id="clothes-size"></p> 
-                <img src="" id="clothing-image" data-id=""/> -->
-              
-            </div> <!-- END/// of clothing info-->
-
-
-
-                <div class="form-container"> 
+            <div class="form-container"> 
                  <form class="add-clothes-form">
-                 </form>
+              
                     
-                <!-- <h3>Add Clothing Item!</h3>
+                <h3>Add Clothing Item!</h3>
         
                 <input
                     type="text"
@@ -73,52 +34,73 @@
                     value=""
                     placeholder="Enter a Clothing name..."
                     class="input-text"
+                    id="name"
+                    
                 />
-                <br />
+                <br>
                 <input
                     type="text"
-                    name="image"
+                    name="photo_url"
                     value=""
                     placeholder="Clothing image URL..."
                     class="input-text"
+                    id="photo_url"
+                  
+    
                 />
-                <br />
-                <br />
+                <br>
+                <br>
                 <input
                     type="text"
-                    name="image"
+                    name="color"
                     value=""
                     placeholder="Item's color..."
                     class="input-text"
+                    id="color"
+                    
                 />
-                <br />
-                <br />
+                <br>
+                <br>
                 <input
                     type="text"
-                    name="image"
+                    name="clothing_type"
                     value=""
                     placeholder="Clothing Type"
                     class="input-text"
+                    id="clothing_type"
+                    
                 />
-                <br />
-                <br />
+                <br>
+                <br>
                 <input
                     type="text"
-                    name="image"
+                    name="brand"
                     value=""
                     placeholder="Brand"
                     class="input-text"
+                    id="brand"
                 />
-                <br />
-                <br />
+                <br>
+                <br>
                 <input
                     type="text"
-                    name="image"
+                    name="material"
+                    value=""
+                    placeholder="Material"
+                    class="input-text"
+                    id="material"
+                />
+                <br>
+                <br>
+                <input
+                    type="text"
+                    name="size"
                     value=""
                     placeholder="Size"
                     class="input-text"
+                    id="size"
                 />
-                <br />
+                <br>
 
                 <input id="submit-button"
                     type="submit"
@@ -126,16 +108,69 @@
                     value="Add Clothes"
                     class="submit"
                 />
+
+           
                 </form> 
-            </div> 
-
-
-        </div> <!-- END/// of the 2nd column with all clothes in it-->
+        </div> 
+        <div class="outfit-container">
        
-    </main> <!-- END/// Big box not including the header, but including the rest of the page -->
+        <form class="add-outfit-form"> <!-- this is where the outfit form begins-->
+            <br>
+            <h3>Add An Outfit!</h3>
+                <input
+                    type="text"
+                    name="outfit-name"
+                    value=""
+                    placeholder="Outfit Name"
+                    class="input-text"
+                    id="brand"
+                />
+                <br>
+                <br>
+                <input
+                    type="text"
+                    name="outfit-season"
+                    value=""
+                    placeholder="Season"
+                    class="input-text"
+                    id="material"
+                />
+                <br>
+                <br>
+                <input
+                    type="text"
+                    name="outfit-occasion"
+                    value=""
+                    placeholder="Occasion"
+                    class="input-text"
+                    id="size"
+                />
+                <br>
+                <!-- mark this one as new because it is being created-->
+                <input 
+                type="text"
+                name="outfit-status"
+                value=""
+                placeholder="New"
+                class="input-text"
+                id="size"
+            /> 
+            <br>
 
+                <input id="submit-button"
+                    type="submit"
+                    name="submit"
+                    value="Add Clothes"
+                    class="submit"
+                />
+
+              
+                </form> 
+            </div>
+       
+   
     
-
-</body> <!-- END///this is the biggest grid/box for all content, including header -->
+    <script src="script.js"></script> 
+</body> 
 
 </html>

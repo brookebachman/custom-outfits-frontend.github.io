@@ -32,8 +32,15 @@ body {
 }
 
 #clothing-image {
-    height: 12vw;
-    width: 11vw;
+    height: 17vw;
+    width: 14vw;
+}
+
+.form-container, .outfit-container {
+   display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
 h2 {
@@ -46,7 +53,7 @@ h2 {
 
   h3 {
       color: rgb(238, 199, 98);
-      text-align: right; 
+      text-align: left; 
   }
 
 
