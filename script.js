@@ -60,7 +60,7 @@ main.addEventListener("click", function (event) {
 
 })
 function getOutfitsOnPage() {
-    fetch("http://localhost:3000/outfits")
+    fetch("https://cookie-custom-project.herokuapp.com/outfits")
         .then((function(resp) {
             return resp.json();
         })).then(function (outfits) {
@@ -144,7 +144,7 @@ function getClothingsOnPage() {
     clothingItemCard.id = "clothing-item-card"
     const main = document.getElementsByTagName("main")[0]
 
-    fetch("http://localhost:3000/clothings")
+    fetch("https://cookie-custom-project.herokuapp.com/clothings")
         .then((function (resp) {
             return resp.json();
         })).then(function (clothings) {
@@ -222,7 +222,7 @@ function addOutfitToOutfitsPost(){
     }
     debugger
 
-    fetch("http://localhost:3000/outfits", {
+    fetch("https://cookie-custom-project.herokuapp.com/outfits", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
@@ -265,7 +265,7 @@ function addClothesToClothesPagePost() {
     }
     console.log("About to post")
 
-    fetch("http://localhost:3000/clothings",
+    fetch("https://cookie-custom-project.herokuapp.com/clothings",
         {
             method: "POST",
             headers: {
@@ -311,7 +311,7 @@ function makeClothesFormAppear() {
 
 function deleteClothingItemInOutfit(clothesId) {
     console.log(clothesId)
-    fetch(`http://localhost:3000/clothings/${clothesId}`,{
+    fetch(`https://cookie-custom-project.herokuapp.com/${clothesId}`,{
     method: 'DELETE',
     headers: {
         'Content-Type': 'application/json',

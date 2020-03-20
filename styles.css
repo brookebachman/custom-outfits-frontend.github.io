@@ -19,8 +19,9 @@ body {
 
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr;
 }
+
 
 #outfit-info-column, #clothes-column {
     padding: 15px;
@@ -34,6 +35,11 @@ body {
 #clothing-image {
     height: 17vw;
     width: 14vw;
+}
+
+.add-clothes-form {
+  padding-right: 20%;
+  align-items: center;
 }
 
 .form-container, .outfit-container {
@@ -79,90 +85,7 @@ title {
     background-position: inherit;
     height: 300px;
 }
-/* 
-  body{background-color:white;background-image:url(http://www.zingerbugimages.com/backgrounds/multi_colored_stars2.gif);background-position:top left;background-repeat:repeat;background-attachment:fixed} */ */
 
-  /* body {
-    background-image: url("gradient_bg.png");
-  }
-      
-  .blinking{
-    animation:blinkingText 3.0s infinite;
-}
-@keyframes blinkingText{
-    0%{     color: pink;    }
-    49%{    color: blueviolet; }
-    60%{    color: transparent; }
-    99%{    color:transparent;  }
-    100%{   color: green;    }
-}
-
-  .navbar{
-    margin-left: 5em;
-    padding-left: 2em;
-  }
-  
-  .login-container {
-    display: none;
-    background-color: black;
-  }
-  
-  
-  .form-group {
-    width: 20%;
-  }
-  
-  .Navigation.Bar {
-    width:20%;
-  }
-  
-      h1 {
-          
-          font-family: sans-serif;
-          font-size: 300%;
-          text-align: center;
-
-        }
-
-    
-      
-        #outfits-container {
-            list-style-type: none;
-            margin: 0;
-            color: yellow;
-            padding: 15;
-            text-align: center;
-            font-size: 120%;
-            font-family: sans-serif;
-
-          }
-
-          .add-clothes-form{
-              text-align: right
-          }
-        
-        span {
-          
-          font-family: calibri;
-          font-size: 100%;
-          text-align: left;
-        
-        }
-   
-  
-    
-        /* body{
-      
-          font-weight: bold;
-            color: lightyellow;
-            font-family: verdana;
-            font-size: 200%;
-          text-align: left;
-          background-color: whitesmoke ;
-          margin: 0;
-          padding: 0;
-          
-        } */
   
         nav {
             padding-top: 1% ;
@@ -174,10 +97,7 @@ title {
             font-family: sans-serif;
         }
 
-        .add-clothes-form {
-            padding-right: 2%;
-        }
-
+       
         #outfit-clothes-image {
             height: 400px;
             width: 370px;
