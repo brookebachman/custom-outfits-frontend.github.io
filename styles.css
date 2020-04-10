@@ -1,134 +1,182 @@
 h1 {
-    color: rgb(214, 102, 82);
-    text-align: center;
-    font-size: 250%;
-    font-family: cursive;
-    font-style: bold;
+	color: rgb(214, 102, 82);
+	text-align: center;
+	font-size: 250%;
+	font-family: cursive;
+	font-style: bold;
 }
-#title{
-    text-align: center;
-    padding-top: 5px;
-    font-size: 20px;
-    color: #ebc959;
-    margin: 0;
+#title {
+	text-align: center;
+	padding-top: 5px;
+	font-size: 20px;
+	color: #ebc959;
+	margin: 0;
 }
 
-body {
-    margin:0;
+html {
+	background: url('https://fbcd.co/images/products/6d1005ae4510099f7997e13788af225b_resize.jpg') no-repeat center
+		center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .main-container {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+	grid-gap: 15px;
 }
 
-
-#outfit-info-column, #clothes-column {
-    padding: 15px;
+.clothing-item-card {
+	display: inline;
 }
 
-#clothes-column {
+.clothing-items {
+	border: black 2px;
+	border-radius: 3px;
+	background: #fceabb; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #f4e7c9, #edcf6f); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to bottom,
+		#f4e7c9,
+		#edcf6f
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 4px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+}
+
+#welcome {
+	grid-row: 3/4;
+	grid-column: 1/-1;
+    text-align: center;
+    font-size: 23px;
+    font-family: 'Oswald', sans-serif;
 }
 
 #clothing-image {
-    height: 17vw;
-    width: 14vw;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 250px;
+	width: 225px;
+}
+
+#outfit-clothes-image {
+	height: 400px;
+	width: 370px;
 }
 
 .add-clothes-form {
-  padding-right: 20%;
-  align-items: center;
+	padding-right: 20%;
+	align-items: center;
 }
 
-.form-container, .outfit-container {
-   display: none;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+.form-container,
+.outfit-container {
+	display: none;
+	align-items: center;
+	justify-content: space-around;
 }
 
 h2 {
-    color: #eb9b59;
-    font-family: verdana;
-    font-size: 200%;
-    margin: 0;
-    padding-top: 80px;
-  } 
-
-  h3 {
-      color: rgb(238, 199, 98);
-      text-align: left; 
-  }
-
-
-  .header-site{
-    background: url(public/yellow_closet.png);
- }
-
-header {
-    text-align: center;
-    background-position: inherit;
-    height: 300px;
-  }
-
-  span {
-      color: #e7b62d;
-      font-size: 100%;
-      text-align: center;
-      font-family: verdana;
-  }
-
-title {
-    text-align: center;
-    background-position: inherit;
-    height: 300px;
+	color: #eb9b59;
+	font-family: 'Oswald', sans-serif;
+	font-size: 200%;
+	margin: 0;
+	padding-top: 80px;
 }
 
-  
-        nav {
-            padding-top: 1% ;
-            list-style-type: none;
-            margin: 400;
-            padding-left: 1%;
-            font-size: 125%;
-            color: violet;
-            font-family: sans-serif;
-        }
+h3 {
+	color: rgb(77, 77, 77);
+	text-align: center;
+}
 
-       
-        #outfit-clothes-image {
-            height: 400px;
-            width: 370px;
-        }
-      
-        p {
-          color: orange;
-          font-size: 16px;
-        }
+.header-site {
+	background: url(public/yellow_closet.png);
+}
 
-        
+header {
+	text-align: center;
+	background-position: inherit;
+	height: 300px;
+}
 
-        #submit-button {
-            text-align: center;
-            padding-right: 4%;
+.nav {
+	color: #e7b62d;
+	font-size: 25px;
+	text-align: center;
+    font-family: 'Slabo 27px', serif;
+	cursor: pointer;
+}
 
-        }
+title {
+	text-align: center;
+	background-position: inherit;
+	height: 300px;
+}
 
-        
-      
-  
-      input {
-        padding: 0;
-        height: 30px;
-        position: relative;
-        left: 0;
-        outline: none;
-        border: 1px solid #cdcdcd;
-        border-color: rgba(0,0,0,.15);
-        background-color: white;
-        font-size: 12px;
-    }
-  
-      
+nav {
+	padding-top: 1%;
+	list-style-type: none;
+	margin: 400;
+	padding-left: 1%;
+	font-size: 125%;
+	color: violet;
+	font-family: sans-serif;
+}
+
+.tags {
+	text-align: center;
+	color: rgb(77, 77, 77);
+    font-size: 16px;
+    display: inline;
+    text-transform: capitalize;
+    padding: 3px;
+}
+
+#submit-button {
+	text-align: center;
+	padding-right: 4%;
+}
+
+.buffer {
+    height: 30px;
+}
+button {
+	align-self: center;
+}
+
+input {
+	padding: 0;
+	height: 30px;
+	position: relative;
+	left: 0;
+	outline: none;
+	border: 1px solid #cdcdcd;
+	border-color: rgba(0, 0, 0, 0.15);
+	background-color: white;
+	font-size: 12px;
+}
+
+.deletes-item {
+	box-shadow:inset 0px 39px 0px -24px #e67a73;
+	background-color:#e4685d;
+	border-radius:4px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+}
+.deletes-item:hover {
+	background-color:#eb675e;
+}
+.deletes-item:active {
+	position:relative;
+	top:1px;
+}

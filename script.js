@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const outfitLink = document.getElementById("outfit-link")
-const outfitFormLink = document.getElementById("add-outfit-link")
+//onst outfitFormLink = document.getElementById("add-outfit-link")
 const allClothesLink = document.getElementById("all-clothes-link")
 const clothesLink = document.getElementById("clothes-link")
 
@@ -12,33 +12,39 @@ const clothesForm = document.getElementsByClassName("add-clothes-form")[0]
 const outfitForm = document.getElementsByClassName("add-outfit-form")[0]
 const deleteButton = document.createElement("button")
 const likeButton = document.createElement("button")
-const main = document.getElementsByTagName("main")[0]
+const main = document.getElementsByClassName("main-container")[0]
 const clothingItemCard = document.createElement("div")
     clothingItemCard.id = "clothing-item-card"
+const welcome = document.getElementById("Welcome")
 
 
 outfitLink.addEventListener("click", function () {
     getOutfitsOnPage();
 })
 
-outfitFormLink.addEventListener("click", function () {
-    const main = document.getElementsByTagName("main")[0]
-    main.innerHTML = ""
-    makeFormAppearOnPage();
+// outfitFormLink.addEventListener("click", function () {
+//     const main = document.getElementsByClassName("main-container")[0]
+//     main.innerHTML = ""
+//     makeFormAppearOnPage();
 
-})
+// })
 //this one is for adding an item of clothing
 clothesLink.addEventListener("click", function () {
+    
  
-    const main = document.getElementsByTagName("main")[0]
+    const main = document.getElementsByClassName("main-container")[0]
     main.innerHTML = ""
+   
     makeClothesFormAppear();
+    
 
 })
 
 allClothesLink.addEventListener("click", function () {
-    
+   
     getClothingsOnPage();
+    const welcome = document.getElementById("welcome")
+    welcome.style.display = "none";
 })
 
 
@@ -64,9 +70,8 @@ function getOutfitsOnPage() {
         .then((function(resp) {
             return resp.json();
         })).then(function (outfits) {
-            const main = document.getElementsByTagName("main")[0]
+            const main = document.getElementsByClassName("main-container")[0]
             main.innerHTML = ""
-            debugger
             outfits.forEach(function (outfit) {
 
                 const clothingColumn = document.createElement("div")
@@ -142,7 +147,7 @@ function getClothingsOnPage() {
     const clothingColumn = document.createElement("div")
     clothingColumn.id = "clothes-column"
     clothingItemCard.id = "clothing-item-card"
-    const main = document.getElementsByTagName("main")[0]
+    const main = document.getElementsByClassName("main-container")[0]
 
     fetch("https://custom-outfit-backend.herokuapp.com/clothings")
         .then((function (resp) {
@@ -155,11 +160,11 @@ function getClothingsOnPage() {
                 
                 <h3 id="clothes-name">${clothing.name}</h3>
                 <img id="clothing-image" src = ${clothing.photo_url}/>
-                <p id="clothes-color:>Color: ${clothing.color}</p>
-                <p id="clothes-clothing-type:>Type: ${clothing.clothing_type}</p>
-                <p id="clothes-material:>Material: ${clothing.material}</p>
-                <p id="clothes-brand:>Brand: ${clothing.brand}</p>
-                <p id="clothes-size:>Size: ${clothing.size}</p>
+                <div class="tags" id="clothes-color">Color: ${clothing.color}</div>
+                <div class="tags" id="clothes-clothing-type"> ${clothing.clothing_type}</div>
+                <div class="tags" id="clothes-material">Material: ${clothing.material}</div>
+                <div class="tags" id="clothes-brand">${clothing.brand}</div>
+                <div class="tags" id="clothes-size">Size: ${clothing.size}</div>
 
                 `
                     
@@ -169,6 +174,7 @@ function getClothingsOnPage() {
                     deleteButton.innerText = "Click to delete this clothing item "
 
                     const clothingStuff = document.createElement("div")
+                    clothingStuff.className = 'clothing-items'
                     clothingStuff.innerHTML += clothesInfoHTML
                     //clothingItemCard.innerHTML += clothesInfoHTML
                     clothingStuff.appendChild(deleteButton)
@@ -183,7 +189,7 @@ function getClothingsOnPage() {
                     
                     likeButton.appendChild(likeCount)
                    
-                    clothingItemCard.appendChild(clothingStuff)
+                    main.appendChild(clothingStuff)
 
                     //clothingItemCard.appendChild(deleteButton)
                 
@@ -202,12 +208,12 @@ function getClothingsOnPage() {
         })
 }
 //this is where fetching clothes on all clothes page comes from//
-outfitForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    console.log("this submit button works")
-    addOutfitToOutfitsPost()
+// outfitForm.addEventListener("submit", function (event) {
+//     event.preventDefault();
+//     console.log("this submit button works")
+//     addOutfitToOutfitsPost()
 
-});
+// });
 
 function addOutfitToOutfitsPost(){
 
@@ -220,7 +226,7 @@ function addOutfitToOutfitsPost(){
             id: event.target[0].dataset.id,
         }
     }
-    debugger
+  
 
     fetch("https://custom-outfit-backend.herokuapp.com/outfits", {
         method: "POST",
@@ -237,10 +243,10 @@ function addOutfitToOutfitsPost(){
     });
 }
 
-outfitForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+// outfitForm.addEventListener("submit", function (event) {
+//     event.preventDefault();
 
-})
+// })
 
 clothesForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -284,7 +290,10 @@ function addClothesToClothesPagePost() {
 
 function makeFormAppearOnPage() {
     const form = document.getElementsByClassName("outfit-container")[0];
-    form.style.display = "block";
+    const otherForm = document.getElementsByClassName("form-container")[0];
+    otherForm.style.display = "none";
+    form.style.display = "grid";
+    
 
     let outfitName = document.getElementById("outfit-name")
     let outfitSeason = document.getElementById("outfit-season")
@@ -295,10 +304,12 @@ function makeFormAppearOnPage() {
 
 function makeClothesFormAppear() {
     //console.log("you clicked clothes")
+    const otherForm = document.getElementsByClassName("outfit-container")[0];
+    otherForm.style.display = "none";
     const form = document.getElementsByClassName("form-container")[0]; //here i am toggling the form if they click the clothes link
 
     // if (form.style.display === "none") {
-    form.style.display = "block";
+    form.style.display = "grid";
 
     // } else {
     //   form.style.display = "none";
