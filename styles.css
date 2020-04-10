@@ -42,16 +42,16 @@ html {
 		#f4e7c9,
 		#edcf6f
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    margin: 4px;
-    display: grid;
+	margin: 4px;
+	display: grid;
 }
 
 #welcome {
 	grid-row: 3/4;
 	grid-column: 1/-1;
-    text-align: center;
-    font-size: 23px;
-    font-family: 'Oswald', sans-serif;
+	text-align: center;
+	font-size: 23px;
+	font-family: 'Oswald', sans-serif;
 }
 
 #clothing-image {
@@ -106,7 +106,7 @@ header {
 	color: #e7b62d;
 	font-size: 25px;
 	text-align: center;
-    font-family: 'Slabo 27px', serif;
+	font-family: 'Slabo 27px', serif;
 	cursor: pointer;
 }
 
@@ -129,10 +129,10 @@ nav {
 .tags {
 	text-align: center;
 	color: rgb(77, 77, 77);
-    font-size: 16px;
-    display: inline;
-    text-transform: capitalize;
-    padding: 3px;
+	font-size: 16px;
+	display: inline;
+	text-transform: capitalize;
+	padding: 3px;
 }
 
 #submit-button {
@@ -141,7 +141,7 @@ nav {
 }
 
 .buffer {
-    height: 30px;
+	height: 30px;
 }
 button {
 	align-self: center;
@@ -160,23 +160,23 @@ input {
 }
 
 .deletes-item {
-	box-shadow:inset 0px 39px 0px -24px #e67a73;
-	background-color:#e4685d;
-	border-radius:4px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:6px 15px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
+	box-shadow: inset 0px 39px 0px -24px #e67a73;
+	background-color: #e4685d;
+	border-radius: 4px;
+	border: 1px solid #ffffff;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #b23e35;
 }
 .deletes-item:hover {
-	background-color:#eb675e;
+	background-color: #eb675e;
 }
 .deletes-item:active {
-	position:relative;
-	top:1px;
+	position: relative;
+	top: 1px;
 }
