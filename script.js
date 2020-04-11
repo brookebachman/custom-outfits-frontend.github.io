@@ -25,7 +25,6 @@ clothesLink.addEventListener('click', function () {
 });
 
 allClothesLink.addEventListener('click', function () {
-	main.style.display = 'block';
 	getClothingsOnPage();
 	// const welcome = document.getElementById("welcome")
 	// welcome.style.display = "none";
@@ -43,6 +42,8 @@ main.addEventListener('click', function (event) {
 
 });
 function getOutfitsOnPage() {
+	main.innerText  = ""
+	main.style.display = "grid"
 	fetch('https://custom-outfit-backend.herokuapp.com/outfits')
 		.then(function (resp) {
 			return resp.json();
@@ -119,11 +120,14 @@ function getOutfitsOnPage() {
 }
 
 function getClothingsOnPage() {
+
 	const clothingItemCard = document.createElement('div');
 	const clothingColumn = document.createElement('div');
 	clothingColumn.id = 'clothes-column';
 	clothingItemCard.id = 'clothing-item-card';
 	const main = document.getElementsByClassName('main-container')[0];
+	main.innerText  = ""
+	main.style.display = "grid";
 
 	fetch('https://custom-outfit-backend.herokuapp.com/clothings')
 		.then(function (resp) {
@@ -254,15 +258,14 @@ function makeFormAppearOnPage() {
 }
 
 function makeClothesFormAppear() {
+	// const clothesColumn = document.getElementById("clothes-item")
+	// main.removeChild(main.childNodes);
+	main.style.display = "block"
 	
-	const otherForm = document.getElementsByClassName("outfit-container")[0];
-	otherForm.style.display = "grid";
-	const outFitForm = document.getElementsByClassName("add-outfit-form")[0]
-	outFitForm.style.display = "none";
 
 	const form = document.getElementsByClassName('form-container')[0]; //here i 
   
-	form.style.display = 'grid';
+	form.style.display = 'block';
 	welcome.innerHTML = "";
    // welcome.style.display = "none";
 

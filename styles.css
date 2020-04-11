@@ -79,14 +79,19 @@ html {
 }
 
 .add-clothes-form {
-	padding-right: 20%;
-	align-items: center;
+	align-content: center;
+	padding-left: 50%;
+	padding-right: 50%;
+	text-align: center;
+
+}
+
+.form-container {
+	display: none;
 }
 
 
 
-
-.form-container,
 .outfit-container {
 	display: none;
 	
