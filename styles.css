@@ -28,9 +28,20 @@ html {
 	grid-gap: 15px;
 }
 
-.clothing-item-card {
-	display: inline;
+#clothing-item-card {
+	border: black 2px;
+	border-radius: 3px;
+	background: #fceabb; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #f4e7c9, #edcf6f); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to bottom,
+		#f4e7c9,
+		#edcf6f
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	margin: 4px;
+	display: grid;
 }
+
 
 .clothing-items {
 	border: black 2px;
@@ -72,11 +83,13 @@ html {
 	align-items: center;
 }
 
+
+
+
 .form-container,
 .outfit-container {
 	display: none;
-	align-items: center;
-	justify-content: space-around;
+	
 }
 
 h2 {
