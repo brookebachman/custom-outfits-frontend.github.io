@@ -40,7 +40,7 @@ main.addEventListener('click', function (event) {
 function getOutfitsOnPage() {
 	main.innerText = '';
 	main.style.display = 'grid';
-	fetch('https://custom-outfit-backend.herokuapp.com/outfits')
+	fetch('http://localhost:3000/outfits')
 		.then(function (resp) {
 			return resp.json();
 		})
@@ -50,7 +50,7 @@ function getOutfitsOnPage() {
 
 			outfits.forEach(function (outfit) {
 				const outfitColumn = document.createElement('div');
-				outfitColumn.id = 'oufit-column';
+				outfitColumn.id = 'outfit-column';
 
 				const outfitInfoHTML = `   
                 <div> 
@@ -97,7 +97,7 @@ function getClothingsOnPage() {
 	main.innerText = '';
 	main.style.display = 'grid';
 
-	fetch('https://custom-outfit-backend.herokuapp.com/clothings')
+	fetch('http://localhost:3000/clothings')
 		.then(function (resp) {
 			return resp.json();
 		})
@@ -154,7 +154,7 @@ function addOutfitToOutfitsPost() {
 		},
 	};
 
-	fetch('https://custom-outfit-backend.herokuapp.com/outfits', {
+	fetch('http://localhost:3000/outfits', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ function addClothesToClothesPagePost() {
 	};
 	console.log('About to post');
 
-	fetch('https://custom-outfit-backend.herokuapp.com/clothings', {
+	fetch('http://localhost:3000/clothings', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -316,7 +316,7 @@ clothesForm.addEventListener('submit', function (event) {
 
 function deleteClothingItemInOutfit(clothesId) {
 	console.log(clothesId);
-	fetch(`https://custom-outfit-backend.herokuapp.com/${clothesId}`, {
+	fetch(`http://localhost:3000/${clothesId}`, {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json',
