@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 const outfitLink = document.getElementById('outfit-link');
 //onst outfitFormLink = document.getElementById("add-outfit-link")
 const allClothesLink = document.getElementById('all-clothes-link');
-const clothesLink = document.getElementById('clothes-link');
+const clothesLink = document.getElementById('add-clothes-link');
 
 const clothesForm = document.getElementById('add-clothes-form');
 const outfitForm = document.getElementsByClassName('add-outfit-form')[0];
@@ -18,7 +18,7 @@ outfitLink.addEventListener('click', function () {
 	getOutfitsOnPage();
 });
 
-clothesForm.addEventListener('click', function () {
+clothesLink.addEventListener('click', function () {
 	makeClothesFormAppear();
 });
 
@@ -56,8 +56,8 @@ function getOutfitsOnPage() {
                 <div> 
                 <h1 id="outfit-name">${outfit.name}</h1> 
                 <p id="outfit-season">Season: ${outfit.season}</p>
-                <p id="outfit-occasion">Occasion:${outfit.occasion}</p>
-                <p id="outfit-is-new">Outfit Status: ${outfit.is_new}</p>
+                <p id="outfit-occassion">Occasion:${outfit.occasion}</p>
+               
                 </div>
                 `;
 
@@ -67,12 +67,11 @@ function getOutfitsOnPage() {
 					const clothesInfoHTML = `
 					<h3 id="clothes-name">${clothing.name}</h3>
 					<img id="clothing-image" src = ${clothing.photo_url}/>
-					<p id="clothes-color:>Color: ${clothing.color}</p>
-					<p id="clothes-clothing-type:>Type: ${clothing.clothing_type}</p>
-					<p id="clothes-material:>Material: ${clothing.material}</p>
-					<p id="clothes-brand:>Brand: ${clothing.brand}</p>
-					<p id="clothes-size:>Size: ${clothing.size}</p>
-					<p id="like-count">0</p>
+					
+					<p id="clothes-material":>Material: ${clothing.material}</p>
+					<p id="clothes-brand":> ${clothing.brand}</p>
+					<p id="clothes-size":>Size: ${clothing.size}</p>
+					<p id="like-count">Likes 0</p>
 					<button id="like-button" data-id={clothing.id}> ♡
 					</button>
 					<button id="delete-button" data-id={clothing.id}> X </button>
@@ -105,10 +104,10 @@ function getClothingsOnPage() {
 			clothings.forEach(function (clothing) {
 				const clothesInfoHTML = `
                 
-                <h3 id="clothes-name">${clothing.name}</h3>
+                <h3 id="clothes-name-item">${clothing.name}</h3>
                 <img id="clothing-image" src = ${clothing.photo_url}/>
-                <div class="tags" id="clothes-color">Color: ${clothing.color}</div>
-                <div class="tags" id="clothes-clothing-type"> ${clothing.clothing_type}</div>
+                
+               
                 <div class="tags" id="clothes-material">Material: ${clothing.material}</div>
                 <div class="tags" id="clothes-brand">${clothing.brand}</div>
                 <div class="tags" id="clothes-size">Size: ${clothing.size}</div>
@@ -210,7 +209,7 @@ function makeClothesFormAppear() {
 	
 
 	const form = `   
-	<form class="add-clothes-form">
+	<form id="add-clothes-form">
               
                     
 	<h3 id="form-title">Add Clothing Item! </h3>
@@ -303,7 +302,8 @@ function makeClothesFormAppear() {
 
 }
 
-clothesForm.addEventListener('submit', function (event) {
+document.getElementById("add-clothes-form").addEventListener('submit', function (event) {
+	console.log('this submit button works');
 	event.preventDefault();
 	let h3 = document.getElementById('form-title');
 	let h1 = document.createElement('h1');
