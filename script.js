@@ -63,7 +63,6 @@ function getOutfitsOnPage() {
 					const clothesInfoHTML = `
 					<h3 id="clothes-name">${clothing.name}</h3>
 					<img id="clothing-image" src = ${clothing.photo_url}/>
-					
 					<p id="clothes-material":>Material: ${clothing.material}</p>
 					<p id="clothes-brand":> ${clothing.brand}</p>
 					<p id="clothes-size":>Size: ${clothing.size}</p>
@@ -102,34 +101,21 @@ function getClothingsOnPage() {
                 
                 <h3 id="clothes-name-item">${clothing.name}</h3>
                 <img id="clothing-image" src = ${clothing.photo_url}/>
-                
-               
                 <div class="tags" id="clothes-material">Material: ${clothing.material}</div>
                 <div class="tags" id="clothes-brand">${clothing.brand}</div>
-                <div class="tags" id="clothes-size">Size: ${clothing.size}</div>
+				<div class="tags" id="clothes-size">Size: ${clothing.size}</div>
+				<div class="tags" id="like-count-clothes">Likes 0</p>
+					<button id="like-button" data-id=${clothing.id}> ♡
+					</button>
+					<button id="delete-button" data-id=${clothing.id}> 🗑 </button>
+					</div>
 
                 `;
 
-				const deleteButton = document.createElement('button');
-				deleteButton.id = 'delete-item-button-' + clothing.id;
-				deleteButton.className = 'deletes-item';
-				deleteButton.innerText = '🗑';
 
 				const clothingStuff = document.createElement('div');
 				clothingStuff.className = 'clothing-items';
 				clothingStuff.innerHTML += clothesInfoHTML;
-				//clothingItemCard.innerHTML += clothesInfoHTML
-				clothingStuff.appendChild(deleteButton);
-
-				const likeButton = document.createElement('button');
-				likeButton.id = 'like-item-button-' + clothing.id;
-				likeButton.className = 'likes-item';
-				likeButton.innerText = 'Likes';
-				const likeCount = document.createElement('div');
-				likeCount.innerText = 0;
-
-				likeButton.appendChild(likeCount);
-
 				main.appendChild(clothingStuff);
 			});
 
@@ -303,8 +289,8 @@ function makeClothesFormAppear() {
 			h1.id = "form-message"
 			h1.innerText = 'Your Clothes Were Added Check the Clothes Link!';
 			h3.appendChild(h1);
-			document.getElementById('add-clothes-form').reset();
 			addClothesToClothesPagePost();
+			document.getElementById('add-clothes-form').reset();
 		});
 
 }
