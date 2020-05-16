@@ -6,8 +6,6 @@ const outfitLink = document.getElementById('outfit-link');
 //onst outfitFormLink = document.getElementById("add-outfit-link")
 const allClothesLink = document.getElementById('all-clothes-link');
 const clothesLink = document.getElementById('add-clothes-link');
-
-const clothesForm = document.getElementById('add-clothes-form');
 const outfitForm = document.getElementsByClassName('add-outfit-form')[0];
 const deleteButton = document.createElement('button');
 const likeButton = document.createElement('button');
@@ -24,8 +22,6 @@ clothesLink.addEventListener('click', function () {
 
 allClothesLink.addEventListener('click', function () {
 	getClothingsOnPage();
-	// const welcome = document.getElementById("welcome")
-	// welcome.style.display = "none";
 });
 
 main.addEventListener('click', function (event) {
@@ -117,7 +113,7 @@ function getClothingsOnPage() {
 				const deleteButton = document.createElement('button');
 				deleteButton.id = 'delete-item-button-' + clothing.id;
 				deleteButton.className = 'deletes-item';
-				deleteButton.innerText = 'Click to delete this clothing item ';
+				deleteButton.innerText = '🗑';
 
 				const clothingStuff = document.createElement('div');
 				clothingStuff.className = 'clothing-items';
@@ -203,7 +199,7 @@ function addClothesToClothesPagePost() {
 }
 
 function makeClothesFormAppear() {
-	console.log("you clicked this")
+	console.log("you clicked this form to appear")
 	main.style.display = "block"
 	main.innerText = '';
 	
@@ -298,21 +294,22 @@ function makeClothesFormAppear() {
 	</form> `
 
 		main.innerHTML += form;
+		document.getElementById("add-clothes-form").addEventListener('submit', function (event) {
 	
+			event.preventDefault();
+			console.log('this submit button works');
+			let h3 = document.getElementById('form-title');
+			let h1 = document.createElement('h1');
+			h1.id = "form-message"
+			h1.innerText = 'Your Clothes Were Added Check the Clothes Link!';
+			h3.appendChild(h1);
+			document.getElementById('add-clothes-form').reset();
+			addClothesToClothesPagePost();
+		});
 
 }
 
-document.getElementById("add-clothes-form").addEventListener('submit', function (event) {
-	console.log('this submit button works');
-	event.preventDefault();
-	let h3 = document.getElementById('form-title');
-	let h1 = document.createElement('h1');
-	h1.innerText = 'Your Clothes Were Added Check the Clothes Link!';
-	h3.appendChild(h1);
-	console.log('this submit button works');
-	document.getElementsByClassName('add-outfit-form')[0].reset();
-	addClothesToClothesPagePost();
-});
+
 
 function deleteClothingItemInOutfit(clothesId) {
 	console.log(clothesId);
