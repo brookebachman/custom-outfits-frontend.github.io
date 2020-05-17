@@ -25,13 +25,20 @@ allClothesLink.addEventListener('click', function () {
 });
 
 main.addEventListener('click', function (event) {
+	console.log("you clicked a button")
 	//in this function i am adding an event listener on the main div, then i am retrieving the clothing id from the button's id because i added the clothing id to the button to make them matc. Once i get the event.target, if that matches delete-button. I turn the string into an array. I use length-1 in order to get my index. Once i get the index i plug that index into the array i created to get the id value.
 	if (event.target.className === 'deletes-item') {
 		let deleteIdArr = event.target.id.split('-');
 		let lastIndex = event.target.id.split('-').length - 1;
 		let clothesId = deleteIdArr[lastIndex];
 		deleteClothingItemInOutfit(clothesId);
+	} else if (event.target.className === 'like-clothes'){
+		let likeIdArr = event.target.id.split('-');
+		let lastIndex = event.target.id.split('-').length - 1;
+		let clothesId = likeIdArr[lastIndex];
+		updateLikesOnClothings(clothesId);
 	}
+
 });
 function getOutfitsOnPage() {
 	main.innerText = '';
@@ -47,13 +54,11 @@ function getOutfitsOnPage() {
 			outfits.forEach(function (outfit) {
 				const outfitColumn = document.createElement('div');
 				outfitColumn.id = 'outfit-column';
-
 				const outfitInfoHTML = `   
                 <div> 
                 <h1 id="outfit-name">${outfit.name}</h1> 
                 <p id="outfit-season">Season: ${outfit.season}</p>
                 <p id="outfit-occassion">Occasion:${outfit.occasion}</p>
-               
                 </div>
                 `;
 
@@ -66,7 +71,7 @@ function getOutfitsOnPage() {
 					<p id="clothes-material":>Material: ${clothing.material}</p>
 					<p id="clothes-brand":> ${clothing.brand}</p>
 					<p id="clothes-size":>Size: ${clothing.size}</p>
-					<p id="like-count">Likes 0</p>
+					<p id="like-count-clothes">Likes 0</p>
 					<button id="like-button" data-id={clothing.id}> ♡
 					</button>
 					<button id="delete-button" data-id={clothing.id}> X </button>
@@ -104,18 +109,25 @@ function getClothingsOnPage() {
                 <div class="tags" id="clothes-material">Material: ${clothing.material}</div>
                 <div class="tags" id="clothes-brand">${clothing.brand}</div>
 				<div class="tags" id="clothes-size">Size: ${clothing.size}</div>
-				<div class="tags" id="like-count-clothes">Likes 0</p>
-					<button id="like-button" data-id=${clothing.id}> ♡
-					</button>
-					<button id="delete-button" data-id=${clothing.id}> 🗑 </button>
-					</div>
-
+				<div class="tags"id="like-count-clothes">Likes 0</p>
                 `;
 
+				const deleteButton = document.createElement('button');
+				deleteButton.id = 'delete-item-button-' + clothing.id;
+				deleteButton.className = 'deletes-item';
+				deleteButton.innerText = '🗑';
+
+				const likeButton = document.createElement('button');
+				likeButton.id = 'add-item-button-' + clothing.id;
+				likeButton.className = 'like-clothes';
+				likeButton.innerText = '♡';
 
 				const clothingStuff = document.createElement('div');
 				clothingStuff.className = 'clothing-items';
 				clothingStuff.innerHTML += clothesInfoHTML;
+				//clothingItemCard.innerHTML += clothesInfoHTML
+				clothingStuff.appendChild(likeButton)
+				clothingStuff.appendChild(deleteButton);
 				main.appendChild(clothingStuff);
 			});
 
@@ -150,7 +162,6 @@ function addOutfitToOutfitsPost() {
 			console.log(outfitData);
 		});
 }
-
 
 function addClothesToClothesPagePost() {
 	let data = {
@@ -295,8 +306,6 @@ function makeClothesFormAppear() {
 
 }
 
-
-
 function deleteClothingItemInOutfit(clothesId) {
 	console.log(clothesId);
 	fetch(`http://localhost:3000/${clothesId}`, {
@@ -317,48 +326,33 @@ function deleteClothingItemInOutfit(clothesId) {
 	//get all clothings, and delete the item you do not want
 }
 
-// function makeFormAppearOnPage() {
-// 	main.innerHTML = '';
-// 	const form = document.getElementsByClassName('outfit-container')[0];
-// 	const otherForm = document.getElementsByClassName('form-container')[0];
+function updateLikesOnClothings(clothesId) {
+	console.log(clothesId)
+	
+	let likesCount = document.getElementById("like-count-clothes")
+	console.log(likesCount)
+    let numLikes = parseInt(likesCount.innerText)
+	let newLikesCount = numLikes + 1
+	likesCount.innerText = newLikesCount
 
-// 	otherForm.style.display = 'none';
-// 	form.style.display = 'block';
+    fetch(`http://localhost:3000/clothings/${clothesId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            likes: newLikesCount
+        })
+    }).then(function(resp){
+        return resp.json();
+    }).then(function(data){
+        console.log(data)
+       
 
-// 	let outfitName = document.getElementById('outfit-name');
-// 	let outfitSeason = document.getElementById('outfit-season');
-// 	let outfitOccasion = document.getElementById('outfit-occasion');
-// 	let outfitStatus = document.getElementById('outfit-status');
-// }
+    })
+ 
+    //we need to grab the id of the item
+    //and use that for the patch request
 
-
-
-// function updateLikesOnClothings(clothesId) {
-
-//     let likesCount = document.createElement("div")
-//     likesCount.innerText = 0
-//     let newLikesCount = parseInt(likesCount) + 1
-//     const clothingItemCard = document.createElement("div")
-
-//     fetch(`http://localhost:3000/clothings/${clothesId}`, {
-//         method: 'PATCH',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             likes: newLikesCount
-//         })
-//     }).then(function(resp){
-//         return resp.json();
-//     }).then(function(data){
-//         console.log(data)
-//         likesCount += newLikesCount.innerText
-//         clothingItemCard.appendChild(likesCount)
-
-//     })
-//     debugger
-//     //we need to grab the id of the item
-//     //and use that for the patch request
-
-// }
+}
